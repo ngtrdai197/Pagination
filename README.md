@@ -10,7 +10,6 @@ exports.findAll = (req, res) => {
     const perPage = 4; // số lượng phần tử muốn hiển thị
     const start = (page - 1) * perPage;
     const end = page * perPage;
-    
     Product.find().then(products => {
         const dataPage = products.slice(start, end);
         const response = { status: true, data: dataPage, pageCount: Math.ceil(products.length/perPage) };
